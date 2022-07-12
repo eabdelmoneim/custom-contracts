@@ -8,16 +8,18 @@ import "@thirdweb-dev/contracts/feature/Royalty.sol";
 
 /// @title Azuki contract that can be fully used in the thirdweb dashboard
 contract AzukiWithMinting is ERC721A, IMintableERC721, PermissionsEnumerable, Royalty {
-    
+
+  // DEFINE YOUR ROLE
+    bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");  
     address private owner;
 
     constructor(string memory name, string memory symbol) ERC721A(name, symbol) {
        
+         owner = msg.sender;
         // initialize permissions
-        _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
-        _setupRole("minter", msg.sender);
-        _setupRole("pauser", msg.sender);
-        owner = msg.sender;
+        _setupRole(DEFAULT_ADMIN_ROLE, owner);
+        _setupRole(MINTER_ROLE, owner);
+        _setupRole("pauser", owner);
     }
 
 
