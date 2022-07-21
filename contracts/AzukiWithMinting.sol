@@ -1,13 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import './ERC721A.sol';
-import '@thirdweb-dev/contracts/feature/interface/IMintableERC721.sol';
-import "@thirdweb-dev/contracts/feature/PermissionsEnumerable.sol";
-import "@thirdweb-dev/contracts/feature/Royalty.sol";
+import "erc721a/contracts/ERC721A.sol";
+import "@thirdweb-dev/contracts/extension/Permissions.sol";
 
 /// @title Azuki contract that can be fully used in the thirdweb dashboard
-contract AzukiWithMinting is ERC721A, IMintableERC721, PermissionsEnumerable, Royalty {
+contract AzukiWithMinting is ERC721A, Permissions {
 
   // DEFINE YOUR ROLE
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");  
@@ -22,19 +20,13 @@ contract AzukiWithMinting is ERC721A, IMintableERC721, PermissionsEnumerable, Ro
         _setupRole("pauser", owner);
     }
 
-
     mapping(uint256 => string) private uris;
-
-    function _canSetRoyaltyInfo() internal override returns (bool) {
-        return msg.sender == owner;
-    }
 
     /// Modified Azuki mint function to accept a URI, and work in our dashboard
     function mintTo(address to, string calldata uri) external returns (uint256) {
-        uint256 id = _currentIndex;
+        uint256 id = _nextTokenId();
         _safeMint(to, 1);
         uris[id] = uri;
-        emit TokensMinted(to, id, uri);
         return id;
     }
 
