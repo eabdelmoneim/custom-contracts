@@ -3,9 +3,9 @@ pragma solidity ^0.8.9;
 
 import "@thirdweb-dev/contracts/base/ERC721Base.sol";
 import "@thirdweb-dev/contracts/extension/LazyMint.sol";
-import "@thirdweb-dev/contracts/extension/Permissions.sol";
+import "@thirdweb-dev/contracts/extension/PermissionsEnumerable.sol";
 
-contract BasicNFTDrop is ERC721Base, Permissions, LazyMint {
+contract BasicNFTDrop is ERC721Base, PermissionsEnumerable, LazyMint {
 
     address public deployer;
 
