@@ -62,7 +62,7 @@ contract ThirdwebRentableERC721A is ERC721A, PermissionsEnumerable,  ContractMet
                             THIRDWEB OWNABLE FEATURE OVERRIDES
     //////////////////////////////////////////////////////////////////////////*/
 
-    function _canSetOwner() internal virtual override returns (bool) {
+    function _canSetOwner() internal view virtual override returns (bool) {
         return msg.sender == owner();
     }
 
@@ -73,7 +73,7 @@ contract ThirdwebRentableERC721A is ERC721A, PermissionsEnumerable,  ContractMet
     /*
     ** only admins/owners can update the contract URI
     */
-    function _canSetContractURI() internal virtual override returns (bool){
+    function _canSetContractURI() internal view virtual override returns (bool){
         return msg.sender == deployer || hasRole(DEFAULT_ADMIN_ROLE, msg.sender);
     }
 
@@ -84,7 +84,7 @@ contract ThirdwebRentableERC721A is ERC721A, PermissionsEnumerable,  ContractMet
     /*
     *   Only admins/owners can set royalties
     */
-    function _canSetRoyaltyInfo() internal virtual override returns (bool){
+    function _canSetRoyaltyInfo() internal view virtual override returns (bool){
         return msg.sender == deployer || hasRole(DEFAULT_ADMIN_ROLE, msg.sender);
     }
 

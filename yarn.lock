@@ -949,10 +949,10 @@
   dependencies:
     "defer-to-connect" "^1.0.1"
 
-"@thirdweb-dev/contracts@^3.0.3":
-  "integrity" "sha512-TQRrML5SwbTb0VA1nu7VLxqIXrqMfvaXOBFT//yA9Jdd7GNsG4zSQHlHpkU4KWG1r766poG/AuXwz8KQ1A9IBg=="
-  "resolved" "https://registry.npmjs.org/@thirdweb-dev/contracts/-/contracts-3.0.3.tgz"
-  "version" "3.0.3"
+"@thirdweb-dev/contracts@^3.1.6":
+  "integrity" "sha512-1SqEs/Zcxl/8BC6o6KBN8ETvthRFBDduJ7TXx60R9JS3RqrhdWID8XFmlHGEQevx0JW9KkovheOrsykX2zxNTA=="
+  "resolved" "https://registry.npmjs.org/@thirdweb-dev/contracts/-/contracts-3.1.6.tgz"
+  "version" "3.1.6"
 
 "@truffle/abi-utils@^0.2.13":
   "integrity" "sha512-WzjyNvx+naXmG/XKF+xLI+tJZLUlPGkd29rY4xBCiY9m/xWk0ZUL6gvVvnRr3leLJkBweJUSBiGUW770V8hHOg=="
